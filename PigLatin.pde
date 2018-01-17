@@ -38,11 +38,13 @@ public String pigLatin(String sWord) {
     return sWord + "way";
   } else if (findFirstVowel(sWord) >0) {
     if (sWord.startsWith("qu") == true) {
-      return sWord.substring(2) + "qu";
+      return sWord.substring(2) + "qu" + "ay";
+    } else if (findFirstVowel(sWord.substring(1))>0) {
+        return sWord.substring(2)+sWord.charAt(0)+sWord.charAt(1)+"ay";
+      } else {
+        return sWord.substring(1)+sWord.charAt(0)+"ay";
+      }
     } else {
-      return sWord.substring(1)+sWord.charAt(0)+"ay";
+      return "ERROR";
     }
-  } else {
-    return "ERROR";
   }
-}
